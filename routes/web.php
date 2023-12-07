@@ -21,19 +21,19 @@ Route::get('/', function () {
 });
 
 Route::middleware(['admin'])->group(function (){
-   Route::get('/dashboard-admin',[DashboardController::class,'admin']);
+   Route::get('/dashboard-admin',[DashboardController::class,'admin'])->name('dashboard.admin');
    Route::get('form-item',[ItemController::class,'form_item']);
    Route::post('insert',[ItemController::class,'add_item']);
    Route::get('item',[ItemController::class, 'show_item']);
 });
 
 Route::middleware(['master'])->group(function () {
-    Route::get('dashboard-master',[DashboardController::class,'master']);
+    Route::get('dashboard-master',[DashboardController::class,'master'])->name('dashboard.master');
     Route::get('profile-master',[Profile_masterController::class,'read']);
 });
 
 Route::middleware(['other'])->group(function (){
-    Route::get('dashboard-other',[DashboardController::class,'other']);
+    Route::get('dashboard-other',[DashboardController::class,'other'])->name('dashboard.other');
 });
 
 

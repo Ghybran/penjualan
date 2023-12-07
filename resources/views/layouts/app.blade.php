@@ -39,8 +39,23 @@
   </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+            {{-- @include('layouts.navigation') --}}
 
+            <!-- Tentukan peran pengguna -->
+            @php
+                $userRole = Auth::user()->role ?? 'default';
+            @endphp
+
+            <!-- Sertakan navigasi berdasarkan peran pengguna -->
+            @if($userRole == 'admin')
+                @include('layouts.navigasi.navAdmin')
+            @elseif($userRole == 'master')
+                @include('layouts.navigasi.navMaster')
+            @elseif($userRole == 'other')
+                @include('layouts.navigasi.navOther')
+            @else
+                @include('layouts.default_navigation')
+            @endif
             <!-- Page Heading -->
 
             <header id="header" class="header fixed-top d-flex align-items-center">
