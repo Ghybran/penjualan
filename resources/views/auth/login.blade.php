@@ -23,6 +23,18 @@
                         <p class="text-center small">Enter your username & password to login</p>
                       </div>
 
+                      @if (session('error'))
+                      <div class="alert alert-danger">
+                          {{ session('error') }}
+                      </div>
+                  @endif
+
+                  @if (session('success'))
+                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{ session('success') }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      @endif
                       <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="col-12">

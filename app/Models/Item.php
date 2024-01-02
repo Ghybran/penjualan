@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
+    protected $primaryKey="id_barang";
     protected $table = 'item';
     // protected $fillable=[
     //     'name',
@@ -23,4 +24,8 @@ class Item extends Model
         'categori',
         'image'
     ];
+    public function order()
+    {
+     return $this->hasMany(Order::class);
+    }
 }
