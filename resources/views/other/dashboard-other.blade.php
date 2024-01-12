@@ -55,16 +55,16 @@
 
                     <div class="col-md-6">
                         <label for="price">harga:</label>
-                        <input id="price" type="text" class="form-control" name="price" placeholder="Your Email" required readonly>
+                        <input id="price" type="number" class="form-control" name="price" placeholder="Your Email" required readonly>
                     </div>
 
                     <div class="col-md-12">
                         <label for="subject">jumlah</label>
-                            <input id="quantity" type="number" class="form-control" name="quantity" value="1" required>
+                            <input id="quantity" onchange="document.getElementById('total').value=this.value*document.getElementById('price').value" type="number" class="form-control" name="quantity" value="1" required>
                     </div>
-
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                        <label for="subject">total</label>
+                            <input id="total" type="number" class="form-control" name="quantity" value="1" required>
                     </div>
 
                     <div class="col-md-12 text-center">
@@ -86,8 +86,6 @@
 
         // ...
 
-
-        var quantityInput = document.getElementById('quantity');
         var modal = document.getElementById('orderModal');
         var buttons = document.querySelectorAll('.custom-contact-col .order-btn');
         var span = document.getElementsByClassName('close')[0];
@@ -95,20 +93,20 @@
         var priceInput = document.getElementById('price');
         var orderForm = document.getElementById('orderForm');
 
-        quantityInput.addEventListener('change', function() {
-            updateTotalPrice();
-        });
+        // quantityInput.addEventListener('change', function() {
+        //     updateTotalPrice();
+        // });
 
-        function updateTotalPrice() {
-            var price = parseFloat(priceInput.value);
-            var quantity = parseInt(quantityInput.value);
+        // function updateTotalPrice() {
+        //     var price = parseFloat(priceInput.value);
+        //     var quantity = parseInt(quantityInput.value);
 
-            if (!isNaN(price) && !isNaN(quantity)) {
-                var totalPrice = price * quantity;
-                // Menetapkan nilai baru pada input harga
-                priceInput.value = totalPrice.toFixed(2);
-            }
-        }
+        //     if (!isNaN(price) && !isNaN(quantity)) {
+        //         var totalPrice = price * total;
+        //         // Menetapkan nilai baru pada input harga
+        //         priceInput.value = totalPrice.toFixed(2);
+        //     }
+        // }
 
 
         buttons.forEach(function(button) {

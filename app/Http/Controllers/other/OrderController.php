@@ -12,6 +12,10 @@ class OrderController extends Controller
     function show ()
     {
         $order= Order::all();
+        // $total= Order::find()->quantity();
+        // $total2= order::find()->price();
+        // $c = $total*$total2;
+
         return view('orderan',compact('order'));
     }
     function order ()
@@ -21,6 +25,8 @@ class OrderController extends Controller
         'name_barang'=>request('name_barang'),
         'user_id'=>Auth::User()->id,
         'price'=>request('price'),
+        'quantity'=>request('quantity'),
+        'total_price'=>request('total_quantity'),
         'address'=>Auth::User()->address,
      ]);
      $order->save();

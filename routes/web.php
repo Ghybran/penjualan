@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\ItemController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\master\Profile_masterController;
 use App\Http\Controllers\other\ItemController as OtherItemController;
+use App\Http\Controllers\other\Profile_otherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,10 @@ Route::middleware(['master'])->group(function () {
 Route::middleware(['other'])->group(function (){
     Route::get('dashboard-other',[DashboardController::class,'other'])->name('dashboard.other');
     Route::get('dashboard-other',[OtherItemController::class,'show'])->name('dashboard.other');
+
+    //Profile
+    Route::get('profile-other',[Profile_otherController::class,'other']);
+    Route::post('update-profile',[Profile_otherController::class,'update_other']);
 });
 
 

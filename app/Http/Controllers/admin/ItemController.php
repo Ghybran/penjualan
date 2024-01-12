@@ -11,7 +11,7 @@ class ItemController extends Controller
 {
     function show_item()
     {
-       $user = Auth::User() ;
+     $user = Auth::User() ;
      $item=Item::where('user_id', $user->id)->get();
      return view('admin.item',compact('item'));
     }

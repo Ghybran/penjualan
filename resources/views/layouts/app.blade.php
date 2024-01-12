@@ -83,6 +83,29 @@
                         <i class="bi bi-search"></i>
                       </a>
                     </li><!-- End Search Icon-->
+                    <li>
+                        <div class="dropdown">
+                            <button id="dlabel" type="button" class="btn btn-primary" data-bs-toggle="dropdown">
+                                <i class="bi bi-basket3" aria-hidden="true"></i>cart 0
+                                {{-- <div class="icon">
+                                    <i class="bi bi-archive-fill"></i>
+                                    <div class="label">archive-fill</div>
+                                  </div> --}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dlabel">
+                                <div class="row total-header-select">
+                                    <div class="col-lg-12 col-sm-12 total-section text-right">
+                                        <p>total: <span class="text-success">0</span></p>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                                        <a href="" class="btn btn-primary btn-block">view all</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
                     <li class="nav-item dropdown">
 
